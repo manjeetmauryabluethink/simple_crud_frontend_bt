@@ -1,0 +1,41 @@
+<?php $collectionData = $block->getCollection();
+if (count($collectionData)>0) {
+?>
+<a class="action primary" style="float:right;" href="<?= $block->getUrl('btjob/job/form'); ?>">Add New Record + </a>
+<br><br><br>
+<table id="mycss">
+    <tr>
+        <th><?= __('Id'); ?></th>
+        <th><?= __('Name'); ?></th>
+        <th><?= __('Email'); ?></th>
+        <th><?= __('Telephone'); ?></th>
+        <th><?= __('Action'); ?></th>
+    </tr>
+    <?php
+      foreach($collectionData as $data=>$collection):
+    ?>
+    <tr>
+    <td><?= $collection->getId(); ?></td>
+    <td><?= $collection->getName(); ?></td>
+    <td><?= $collection->getEmail(); ?></td>
+    <td><?= $collection->getTelephone(); ?></td>
+
+        <td>
+        
+            <a href="<?= $block->getUrl('btjob/job/view').'id/'.$collection->getId(); ?>" class="action primary">View</a>
+            <a href="<?= $block->getUrl('btjob/job/form').'id/'.$collection->getId(); ?>" class="action primary">Edit</a>
+            <a onClick="return confirm('Do you want really delete ? ')" href="<?= $block->getUrl('btjob/job/delete').'id/'.$collection->getId(); ?>" class="action primary">Delete</a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+<?php }
+else 
+{?>
+    <a class="action primary" style="float:right;" href="<?= $block->getUrl('btjob/job/form'); ?>">Add New Record + </a>
+<br><br><br>
+<?php 
+    echo "No data found";
+}
+
+?>

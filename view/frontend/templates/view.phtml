@@ -1,0 +1,32 @@
+<a style="float:right;" href="<?= $block->getUrl('btjob/job/display') ?>" class="action primary">Back</a><br></br>
+
+<?php $singleData = $block->singleDataFetch();?>
+
+<div>
+    <h3>Name</h3>
+    <p><?php echo $singleData->getName(); ?></p>   
+</div>
+
+<div>
+    <h3>Email</h3>
+    <p><?php echo $singleData->getEmail(); ?></p>   
+</div>
+
+<div>
+    <h3>Telephone</h3>
+    <p><?php echo $singleData->getTelephone(); ?></p>   
+</div>
+
+<div>
+    <h3>Jobpost</h3>
+    <p><?php echo $singleData->getJobOption(); ?></p>   
+</div>
+
+<div>
+	<h3>Image</h3>
+	<?php if($singleData->getUploadFile()): ?>
+        <img width="400" height="300" src="<?php echo $block->getBaseUrl().'media/bluethink/'.$singleData->getUploadFile(); ?>">
+    <?php else: ?>
+        <p>No Image</p>
+    <?php endif; ?>
+</div>

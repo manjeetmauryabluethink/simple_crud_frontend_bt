@@ -1,0 +1,77 @@
+<?php $editData = $block->editOurData();
+?>
+<div class="primary">
+            <button type="submit" class="action submit primary" title="Create User" id="send2" style="color:white;background-color:green;">
+                <a href="<?= $this->getUrl('btjob/job/display'); ?>">see all job</a>
+            </button>
+        </div>
+        <br></br>
+<div class="row">
+<div class="col-md-8">
+<form name="addData" method="post" id="addData" class="form" action="<?= $block->getFormAction(); ?>" enctype="multipart/form-data"
+data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+data-mage-init='{"validation":{}}'>
+<fieldset class="fieldset">
+<legend class="legend"><span><?= $block->escapeHtmlAttr(__('Bluethink Job')) ?></span></legend>
+<fieldset class="fieldset row">
+<div class="fields col-md-6">
+<div class="field title required">
+<label class="label" for="title"><span><?= $block->
+escapeHtmlAttr(__('Candidate Name')) ?></span></label>
+<div class="control">
+<input name="id" id="id" value="<?= ($editData->getId())? $editData->getId():''?>"  type="hidden" >
+
+<input name="name" id="name" title="Name"  class="input-text" type="text" 
+data-validate="{required:true, 'validate-alphanum-with-spaces':true,'validate-not-number-first':true}" value="<?= ($editData->getName())? $editData->getName():''?>">
+</div>
+</div>
+
+<div class="field email required">
+<label class="label" for="title"><span><?= $block->
+escapeHtmlAttr(__('Email')) ?></span></label>
+<div class="control">
+<input name="email" id="email" title="Email"  class="input-text" type="text"  
+data-validate="{required:true, 'validate-email':true}" value="<?= ($editData->getEmail())? $editData->getEmail():''?>">
+</div>
+</div>
+
+<div class="field Telephone required">
+<label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Telephone')) ?></span></label>
+<div class="control">
+<input name="telephone" id="telephone" title="Telephone"  class="input-text"
+type="text"   data-validate="{required:true}" value="<?= ($editData->getTelephone())? $editData->getTelephone():''?>">
+</div>
+</div>
+
+<div class="field job_option required ">
+<label class="label" for="job_option"><span><?= $block->escapeHtml(__('Job Options')) ?></span></label>
+<div class="control">
+<select name="job_option" data-validate="{'validate-select':true}" >
+<option value="">--select Job Post--</option>
+<option  value='0' >Fresher</option>
+<option   value='1'>Experience</option>
+<option  value='2'>Magento Developer</option>
+</select>
+</div>
+</div>
+
+<div class="field File required">
+<label class="label" for="file"><span><?= $block->escapeHtmlAttr(__('Resume')) ?></span></label>
+<div class="control">
+<input name="upload_file" id="upload_file" title="upload_file"  class="input-file"
+type="file"  data-validate="{'required-file':true}" >
+</div>
+</div>
+</div>
+</fieldset>
+</fieldset>
+
+<div class="actions-toolbar">
+<div class="primary">
+<button type="submit" class="action submit primary" title="Save"  ><span><?= $block->
+escapeHtmlAttr(__('Apply Job')) ?></span></button>
+</div>
+</div>
+</form>
+</div>
+</div>
